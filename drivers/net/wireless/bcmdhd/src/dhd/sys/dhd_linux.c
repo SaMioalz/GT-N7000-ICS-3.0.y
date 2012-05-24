@@ -73,6 +73,10 @@
 #include <linux/time.h>
 #include <htsf.h>
 
+int wifi_pm = 0;
+module_param(wifi_pm, int, 0755);
+EXPORT_SYMBOL(wifi_pm);
+
 #define HTSF_MINLEN 200    /* min. packet length to timestamp */
 #define HTSF_BUS_DELAY 150 /* assume a fix propagation in us  */
 #define TSMAX  1000        /* max no. of timing record kept   */
@@ -609,6 +613,10 @@ static int dhd_set_suspend(int value, dhd_pub_t *dhd)
 {
 #ifndef CUSTOMER_HW_SAMSUNG
 	int power_mode = PM_MAX;
+	
+	if ( wifi_pm == 1 )
+		power_mode = PM_FAST;
+	
 	/* wl_pkt_filter_enable_t	enable_parm; */
 	char iovbuf[32];
 	int bcn_li_dtim = 3;
