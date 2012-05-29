@@ -732,7 +732,6 @@ static int
 wl_android_sta_diassoc(struct net_device *dev, const char* straddr)
 {
 	scb_val_t scbval;
-	char addr[ETHER_ADDR_LEN];
 	s32 ret;
 
 	DHD_INFO(("%s: deauth STA %s\n", __FUNCTION__, straddr));
