@@ -1710,7 +1710,7 @@ void srp_late_resume(struct early_suspend *h)
 /*
  * The functions for inserting/removing us as a module.
  */
-static int __init srp_probe(struct platform_device *pdev)
+static int srp_probe(struct platform_device *pdev)
 {
 	struct device *dev = &pdev->dev;
 	int ret;
@@ -2028,7 +2028,6 @@ static int srp_resume(struct platform_device *pdev)
 #endif
 
 static struct platform_driver srp_driver = {
-	.probe		= srp_probe,
 	.remove		= srp_remove,
 	.suspend	= srp_suspend,
 	.resume		= srp_resume,
@@ -2045,7 +2044,7 @@ int __init srp_init(void)
 {
 	printk(banner);
 
-	return platform_driver_register(&srp_driver);
+	return platform_driver_probe(&srp_driver, srp_probe);
 }
 
 void __exit srp_exit(void)
