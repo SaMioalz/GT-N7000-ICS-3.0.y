@@ -412,8 +412,6 @@ static int smb136_probe(struct i2c_client *client,
 	chip->charger.type		= POWER_SUPPLY_TYPE_BATTERY;
 	chip->charger.get_property	= smb136_get_property;
 	chip->charger.set_property	= smb136_set_property;
-	chip->charger.properties	= smb136_charger_props;
-	chip->charger.num_properties	= ARRAY_SIZE(smb136_charger_props);
 
 	ret = power_supply_register(&client->dev, &chip->charger);
 	if (ret) {
