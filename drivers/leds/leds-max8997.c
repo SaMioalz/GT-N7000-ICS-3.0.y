@@ -103,8 +103,6 @@ static void regulator_led_disable(struct regulator_led *led)
 
 static void regulator_led_set_value(struct regulator_led *led)
 {
-	int voltage;
-	int ret;
 	struct regulator *movie;
 
 	mutex_lock(&led->mutex);
