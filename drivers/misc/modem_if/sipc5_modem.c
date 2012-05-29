@@ -139,7 +139,6 @@ static int attach_devices(struct modem_ctl *mc, struct io_device *iod,
 		enum modem_link tx_link)
 {
 	struct link_device *ld;
-	unsigned ch;
 
 	/* add iod to rb_tree */
 	if (iod->format != IPC_RAW)
