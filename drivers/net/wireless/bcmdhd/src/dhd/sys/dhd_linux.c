@@ -616,13 +616,13 @@ static int dhd_set_suspend(int value, dhd_pub_t *dhd)
 	char iovbuf[32];
 	int bcn_li_dtim = 3;
 	uint roamvar = 1;
+	
+	if ( wifi_pm == 1 )
+		power_mode = PM_FAST;
 #endif
 
 	DHD_ERROR(("%s: enter, value = %d in_suspend=%d\n",
 		__FUNCTION__, value, dhd->in_suspend));
-
-	if ( wifi_pm == 1 )
-		power_mode = PM_FAST;
 
 	if (dhd && dhd->up) {
 		if (value && dhd->in_suspend) {
