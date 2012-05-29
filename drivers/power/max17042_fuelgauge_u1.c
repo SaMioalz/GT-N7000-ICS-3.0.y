@@ -332,7 +332,6 @@ static void max17042_get_soc(struct i2c_client *client)
 	struct max17042_chip *chip = i2c_get_clientdata(client);
 	u8 data[2];
 	int soc;
-	int diff = 0;
 
 	if (chip->is_enable) {
 		if (max17042_read_reg(client, MAX17042_REG_SOC_VF, data) < 0)
