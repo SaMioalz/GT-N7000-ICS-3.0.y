@@ -1012,10 +1012,10 @@ static void balance_dirty_pages(struct address_space *mapping,
 	unsigned long dirty_thresh;
 	unsigned long bdi_thresh;
 	long pause = 0;
-	long max_pause;
+	long max_pause = 0;
 	bool dirty_exceeded = false;
 	unsigned long task_ratelimit;
-	unsigned long dirty_ratelimit;
+	unsigned long dirty_ratelimit = 0;
 	unsigned long pos_ratio;
 	struct backing_dev_info *bdi = mapping->backing_dev_info;
 	unsigned long start_time = jiffies;
