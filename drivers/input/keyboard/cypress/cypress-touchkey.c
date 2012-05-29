@@ -75,8 +75,6 @@ static int touchkey_keycode[3] = { 0, KEY_MENU, KEY_BACK };
 static const int touchkey_count = sizeof(touchkey_keycode) / sizeof(int);
 
 #if defined(TK_HAS_AUTOCAL)
-static u8 home_sensitivity;
-static u8 search_sensitivity;
 static u16 raw_data0;
 static u16 raw_data1;
 static u16 raw_data2;
